@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#262626"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/leaf"
+        android:id="@+id/image"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        />
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/app_name"
+             android:layout_gravity="center"
+             android:id="@+id/name"
+             android:fontFamily="@font/narmitbold"
+             android:textSize="25sp"
+             />
+          <EditText
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="10sp"
+              android:maxLines="1"
+              android:hint="@string/email"/>
+
+         <EditText
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_margin="10sp"
+             android:maxLines="1"
+             android:hint="@string/password"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10sp"
+            android:weightSum="2">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/button"
+                android:layout_margin="10sp"
+                android:text="Login"
+                android:height="30sp"
+                android:fontFamily="@font/narmitbold"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/button"
+                android:layout_margin="10sp"
+                android:text="Sign Up"
+                android:height="30sp"
+                android:fontFamily="@font/narmitbold"/>
+        </LinearLayout>
+
+
+
+</LinearLayout>
