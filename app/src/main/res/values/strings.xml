@@ -2,4 +2,8 @@
     <string name="app_name">Agrino</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="logo">Logo</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+    <string name="services">Services</string>
 </resources>
