@@ -57,4 +57,14 @@ Defining Layouts and Resources used in my app not forgetting the manifest
 The engineering language behind the apps functionality
 3. Google Fonts
 Narmit Bold and Normal for the app fonts
-4. 
+4. Circular Image View Dependency
+To create my Recycler View Item Circular Image
+5. Glide
+To ensure smooth image loading since images are retrieved from the Internet
+
+
+## LICENSE
+Check the [LICENSE](LICENSE) out
+
+## By
+**Collins Magondu Muthinja**
