@@ -39,14 +39,14 @@ since it has not been deployed yet
 
 ### **Requirements**
 
-####  Connection to the Internet
+###  Connection to the Internet
 This will enable you to download dependencies used in the project as will as
 retrieve images from the Internet
 
-#### Android Studio or any Android Programming Editor (*Android Studio is the best*);
+### Android Studio or any Android Programming Editor (*Android Studio is the best*);
 This tool will help build the apk and refactor if need be
 
-#### Android Emulator or Phone
+### Android Emulator or Phone
 To test whether the app works on your device
 
 
