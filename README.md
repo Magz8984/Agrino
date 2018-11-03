@@ -1,5 +1,6 @@
-# Agrino :cool:
 
+![Agrino](leaf.png)
+# Agrino
 An android application to information farmers of services around there location
 
 ## Description
