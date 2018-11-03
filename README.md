@@ -31,3 +31,30 @@ problem solving world.
 
 ![News Activity1](news1.png)
 ![News Activity2](news2.png)
+
+## Installation
+
+In order to use this application you will need first clone and build the app
+since it has not been deployed yet
+
+### **Requirements**
+
+1. Connection to the Internet
+This will enable you to download dependencies used in the project as will as
+retrieve images from the Internet
+
+2. Android Studio or any Android Programming Editor (*Android Studio is the best*);
+This tool will help build the apk and refactor if need be
+
+3. Android Emulator or Phone
+To test whether the app works on your device
+
+
+## Technologies Used
+1. XML
+Defining Layouts and Resources used in my app not forgetting the manifest
+2. Java
+The engineering language behind the apps functionality
+3. Google Fonts
+Narmit Bold and Normal for the app fonts
+4. 
