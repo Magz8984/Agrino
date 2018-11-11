@@ -29,7 +29,6 @@ public class NewsActivity extends AppCompatActivity {
         initRecView();
         initServices();
         initListView();
-        AgriService.getAccessToken();
     }
 
     private void initImageBitMaps(){

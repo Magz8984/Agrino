@@ -19,8 +19,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class AgriService {
-    private  static String ACCESS_TOKEN;
-    private   static  void  fetchAccessToken(Callback callback){
+    public   static String ACCESS_TOKEN;
+    public    static  void  fetchAccessToken(Callback callback){
         String hashedCredentials=Encoder.encodeData(Constants.AWHERE_KEY,Constants.AWHERE_SECRET);
         Log.d("HASHED CREDENTIALS",hashedCredentials);
         OkHttpClient okHttpClient= new OkHttpClient.Builder()
@@ -56,23 +56,8 @@ public class AgriService {
         return  null;
     }
 
-    public  static void getAccessToken(){
-        fetchAccessToken(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-            }
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                ACCESS_TOKEN=response.body().string();
-                Log.d("ACCESS TOKEN",retriveACESSTOKEN());
-                Log.d("Crops",getCrops().body().string());
-            }
-        });
-    }
 
-
-    public static  Response getCrops() throws IOException{
+    public static  Response getModels() throws IOException{
         OkHttpClient client =new OkHttpClient();
 
         HttpUrl.Builder urlBulder= HttpUrl.parse(Constants.CROP_URL).newBuilder();
