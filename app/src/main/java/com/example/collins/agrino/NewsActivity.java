@@ -1,10 +1,13 @@
 package com.example.collins.agrino;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -13,9 +16,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import services.AgriService;
 
-public class NewsActivity extends AppCompatActivity {
+public class NewsActivity extends AppCompatActivity  implements View.OnClickListener{
 @BindView(R.id.recView) RecyclerView recyclerView;
 @BindView(R.id.lstItems) ListView  lstItems;
+@BindView(R.id.btnResources) Button btnResources;
     ArrayList<String> mnames=new ArrayList<String>();
     ArrayList<String> imageUrls=new ArrayList<String>();
     ArrayList<String> headers=new ArrayList<String>();
@@ -88,5 +92,13 @@ public class NewsActivity extends AppCompatActivity {
     private void initListView(){
         Log.d("initListView","init list");
         lstItems.setAdapter(new ServicesAdapter(this,headers,bodys));
+    }
+
+    @Override
+    public void onClick(View v) {
+         if(v.equals(btnResources)){
+             Intent intent=new Intent(this,ResourcesActivity.class);
+             startActivity(intent);
+         }
     }
 }

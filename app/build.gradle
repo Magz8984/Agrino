@@ -17,11 +17,11 @@ android {
         }
     }
 
-    buildTypes.each{
-        it.buildConfigField("String","AWHERE_KEY",AWHERE_KEY)
-        it.buildConfigField("String","AWHERE_SECRET",AWHERE_SECRET)
-        it.buildConfigField("String","CROP_URL",CROP_URL)
-        it.buildConfigField("String","CREDENTIAL_URL",CREDENTIAL_URL)
+    buildTypes.each {
+        it.buildConfigField("String", "AWHERE_KEY", AWHERE_KEY)
+        it.buildConfigField("String", "AWHERE_SECRET", AWHERE_SECRET)
+        it.buildConfigField("String", "CROP_URL", CROP_URL)
+        it.buildConfigField("String", "CREDENTIAL_URL", CREDENTIAL_URL)
     }
 }
 

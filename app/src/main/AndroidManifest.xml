@@ -18,9 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".NewsActivity"></activity>
-        <activity android:name=".CropActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".NewsActivity" />
+        <activity android:name=".CropActivity" />
+        <activity android:name=".ResourcesActivity"></activity>
     </application>
 
 </manifest>
