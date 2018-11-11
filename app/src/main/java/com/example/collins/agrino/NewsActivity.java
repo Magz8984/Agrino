@@ -11,18 +11,15 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import services.AgriService;
 
 public class NewsActivity extends AppCompatActivity {
 @BindView(R.id.recView) RecyclerView recyclerView;
 @BindView(R.id.lstItems) ListView  lstItems;
-
-
     ArrayList<String> mnames=new ArrayList<String>();
     ArrayList<String> imageUrls=new ArrayList<String>();
     ArrayList<String> headers=new ArrayList<String>();
     ArrayList<String> bodys=new ArrayList<String>();
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +29,7 @@ public class NewsActivity extends AppCompatActivity {
         initRecView();
         initServices();
         initListView();
+        AgriService.getAccessToken();
     }
 
     private void initImageBitMaps(){

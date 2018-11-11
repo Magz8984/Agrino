@@ -29,7 +29,19 @@
         android:background="#262626">
 
 
+        <Button
+            android:id="@+id/btnResources"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@color/button"
+            android:textColor="#FFF"
+            android:text="@string/Know"
+            android:layout_marginTop="5sp"
+            />
+
         <TextView
+            android:layout_below="@+id/btnResources"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:fontFamily="@font/narmitbold"
