@@ -31,6 +31,18 @@ problem solving world.
 ![News Activity1](news1.png)
 ![News Activity2](news2.png)
 
+
+## New Features **Version 2**
+
+1. **Resource Activity**
+
+* This activity proves crucial for technical farmers who want to keep up reading new content from
+interested areas they would like to read on.
+## Challenges
+
+1. Access Rate Limiting by aWhere API to 20 requests per hour which
+will make Agrino move towards acquiring more data and creating my APIs to solve this
+
 ## Installation
 
 In order to use this application you will need first clone and build the app
@@ -60,6 +72,11 @@ Narmit Bold and Normal for the app fonts
 To create my Recycler View Item Circular Image
 5. Glide
 To ensure smooth image loading since images are retrieved from the Internet
+6. Okhttp3
+A Network Loading library that helps me create async requests making my application
+perfom the same regardless of multiple authentication steps by the OAuth 2 authorization method aWhere API uses.
+7. aWhere API
+An api to retrive crop information in a particular field set
 
 
 ## LICENSE

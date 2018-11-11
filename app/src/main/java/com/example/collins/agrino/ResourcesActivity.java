@@ -1,7 +1,10 @@
 package com.example.collins.agrino;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -12,18 +15,31 @@ import org.json.JSONObject;
 import java.io.IOException;
 
 import Models.Resource;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 import services.AgriService;
 
 public class ResourcesActivity extends AppCompatActivity {
-
+    @BindView(R.id.recResources) RecyclerView recyclerView;
+    LinearLayoutManager linearLayoutManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resources);
-        getAccessToken();
+        ButterKnife.bind(this);
+        linearLayoutManager=new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        Log.d("Res", Integer.toString(Resource.getResouceSize()));
+
+        if(Resource.getResouceSize()>0){
+            recyclerView.setLayoutManager(linearLayoutManager);
+            recyclerView.setAdapter(new ResourcesAdapter(ResourcesActivity.this,Resource.getResources()));
+        }
+        else{
+            getAccessToken();
+        }
     }
     public  void  getAccessToken(){
         AgriService.fetchAccessToken(new Callback() {
@@ -48,6 +64,13 @@ public class ResourcesActivity extends AppCompatActivity {
                                 resources.getJSONObject(i).getJSONObject("source").getString("name"),
                                 resources.getJSONObject(i).getJSONObject("source").getString("link"));
                     }
+                    ResourcesActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            recyclerView.setLayoutManager(linearLayoutManager);
+                            recyclerView.setAdapter(new ResourcesAdapter(ResourcesActivity.this,Resource.getResources()));
+                        }
+                    });
                     Log.d("Size",Integer.toString(Resource.getResouceSize()));
                 }catch (JSONException ex){
                     ex.printStackTrace();

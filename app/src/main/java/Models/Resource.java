@@ -1,4 +1,6 @@
 package Models;
+import android.util.Log;
+
 import  java.util.ArrayList;
 public class Resource {
     private   static  ArrayList<Resource> resources=new ArrayList<>();
@@ -34,7 +36,13 @@ public class Resource {
     }
 
     public String getLink() {
-        return link;
+        if(link.equals("null")){
+            Log.d("DATA","DONE");
+            return "";
+        }
+        else{
+            return  link;
+        }
     }
     public  static  ArrayList<Resource> getResources(){
         return  resources;
