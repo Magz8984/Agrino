@@ -29,6 +29,7 @@ public class NewsActivity extends AppCompatActivity  implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
         ButterKnife.bind(this);
+        btnResources.setOnClickListener(this);
         initImageBitMaps();
         initRecView();
         initServices();
