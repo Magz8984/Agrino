@@ -6,40 +6,58 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/txtCrop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:fontFamily="@font/narmitbold"
-        android:textSize="23sp"
-        android:textColor="@color/button"
-        android:text="@string/crop"/>
 
-    <TextView
-        android:id="@+id/txtDescription"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:fontFamily="@font/narmit"
-        android:paddingTop="5sp"
-        android:text="Description"
-        android:textSize="20sp"/>
+        app:contentPadding="3sp"
+        app:elevation="30sp"
+        app:cardCornerRadius="5sp">
 
-    <TextView
-        android:id="@+id/txtSource"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:fontFamily="@font/narmit"
-        android:paddingTop="5sp"
-        android:text="Source"
-        android:textSize="20sp"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/txtLink"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:fontFamily="@font/narmitbold"
-        android:paddingTop="5sp"
-        android:text="Link"
-        android:textColor="@color/colorPrimary"
-        android:textSize="19sp"/>
+            <TextView
+                android:id="@+id/txtCrop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fontFamily="@font/narmitbold"
+                android:textSize="23sp"
+                android:textColor="@color/button"
+                android:text="@string/crop"/>
+
+            <TextView
+                android:id="@+id/txtDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:fontFamily="@font/narmit"
+                android:paddingTop="5sp"
+                android:text="Description"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/txtSource"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:fontFamily="@font/narmit"
+                android:paddingTop="5sp"
+                android:text="Source"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/txtLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:fontFamily="@font/narmitbold"
+                android:paddingTop="5sp"
+                android:text="Link"
+                android:textColor="@color/colorPrimary"
+                android:textSize="19sp"/>
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
 </LinearLayout>

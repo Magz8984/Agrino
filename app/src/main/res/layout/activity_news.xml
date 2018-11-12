@@ -29,36 +29,20 @@
         android:background="#262626">
 
 
-        <Button
-            android:id="@+id/btnResources"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:background="@color/button"
-            android:textColor="#FFF"
-            android:text="@string/Know"
-            android:layout_marginTop="5sp"
-            />
-
-        <TextView
-            android:layout_below="@+id/btnResources"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:fontFamily="@font/narmitbold"
-            android:textSize="30sp"
-            android:text="@string/services"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/header"/>
-
-
-        <ListView
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/button"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:tabIndicatorColor="#fff"
+        />
+        <android.support.v4.view.ViewPager
+            android:layout_below="@+id/tabs"
+            android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/header"
-            android:id="@+id/lstItems"
-            android:scrollbars="none"/>
-
+            android:layout_height="match_parent">
+        </android.support.v4.view.ViewPager>
     </RelativeLayout>
-
-
 </RelativeLayout>
