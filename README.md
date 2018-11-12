@@ -26,7 +26,7 @@ problem solving world.
 * Here you will find a couple of things
 
 * Recycler View with crop images and names retrieved from the Internet
-* List View with major companies and organizations that offer farm services.\
+* List View with major companies and organizations that offer farm services.
 
 ![News Activity1](news1.png)
 ![News Activity2](news2.png)
@@ -34,10 +34,20 @@ problem solving world.
 
 ## New Features **Version 2**
 
-1. **Resource Activity**
+### Images
 
-* This activity proves crucial for technical farmers who want to keep up reading new content from
+
+
+1. **Resource Fragment**
+
+* This fragment proves crucial for technical farmers who want to keep up reading new content from
 interested areas they would like to read on.
+
+2. **Services Fragment**
+* This fragment  provides services from agriculture service vendor and also a platform for
+other agriculture related  companies to advertise them selves.
+
+
 ## Challenges
 
 1. Access Rate Limiting by aWhere API to 20 requests per hour which
