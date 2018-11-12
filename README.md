@@ -36,7 +36,7 @@ problem solving world.
 
 ### Images
 
-
+![Version 2](version2news.png)
 
 1. **Resource Fragment**
 
