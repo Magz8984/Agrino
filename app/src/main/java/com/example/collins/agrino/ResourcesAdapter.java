@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -34,16 +35,16 @@ public class ResourcesAdapter extends RecyclerView.Adapter<ViewHolder>{
         viewHolder.txtCrop.setText(resources.get(i).getName());
         viewHolder.txtDescription.setText(resources.get(i).getDescription());
         viewHolder.txtSource.setText(resources.get(i).getSource());
-        viewHolder.txtLink.setText(resources.get(i).getLink());
-
+        Log.d("String",resources.get(i).getLink());
         if(!resources.get(i).getLink().equals("")) {
             Log.d("String",resources.get(i).getLink());
-            viewHolder.txtLink.setOnClickListener(new View.OnClickListener() {
+            final  int data=i;
+            viewHolder.btnLink.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (viewHolder.txtLink.getText().toString().startsWith("h")){
+                    if (resources.get(data).getLink().startsWith("h")){
                         Intent browserIntent=new Intent(Intent.ACTION_VIEW);
-                        browserIntent.setData(Uri.parse(viewHolder.txtLink.getText().toString().trim()));
+                        browserIntent.setData(Uri.parse(resources.get(data).getLink().trim()));
                         context.startActivity(browserIntent);
                     }
                 }
@@ -59,12 +60,12 @@ class ViewHolder extends RecyclerView.ViewHolder{
     TextView txtCrop;
     TextView txtDescription;
     TextView txtSource;
-    TextView txtLink;
+    Button btnLink;
     ViewHolder(View view){
         super(view);
         txtCrop=(TextView) view.findViewById(R.id.txtCrop);
         txtDescription=(TextView) view.findViewById(R.id.txtDescription);
         txtSource=(TextView) view.findViewById(R.id.txtSource);
-        txtLink=(TextView) view.findViewById(R.id.txtLink);
+        btnLink=(Button) view.findViewById(R.id.btnLink);
     }
 }

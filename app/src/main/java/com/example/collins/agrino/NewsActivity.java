@@ -1,6 +1,10 @@
 package com.example.collins.agrino;
 
+
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -8,7 +12,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -17,6 +28,7 @@ public class NewsActivity extends AppCompatActivity implements  Services.OnFragm
 @BindView(R.id.recView) RecyclerView recyclerView;
 @BindView(R.id.tabs) TabLayout tabLayout;
 @BindView(R.id.viewPager) ViewPager viewPager;
+@BindView(R.id.toolbar) Toolbar toolbar;
     ArrayList<String> mnames=new ArrayList<String>();
     ArrayList<String> imageUrls=new ArrayList<String>();
     @Override
@@ -27,6 +39,7 @@ public class NewsActivity extends AppCompatActivity implements  Services.OnFragm
         initImageBitMaps();
         initRecView();
         setTablayout();
+        setSupportActionBar(toolbar);;
     }
 
     private void initImageBitMaps(){
@@ -69,6 +82,7 @@ public class NewsActivity extends AppCompatActivity implements  Services.OnFragm
     private  void  setTablayout(){
         tabLayout.addTab(tabLayout.newTab().setText("Services"));
         tabLayout.addTab(tabLayout.newTab().setText("Resources"));
+        tabLayout.addTab(tabLayout.newTab().setText("Profile"));
         PagerAdapter pagerAdapter=new PagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
         viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -89,5 +103,26 @@ public class NewsActivity extends AppCompatActivity implements  Services.OnFragm
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    public  boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater menuInflater=getMenuInflater();
+        menuInflater.inflate(R.menu.agrino_menu,menu);
+        return  super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public  boolean onOptionsItemSelected(MenuItem menuItem){
+        switch (menuItem.getItemId()){
+            case R.id.optLogout:
+                FirebaseAuth.getInstance().signOut();
+                Intent intent=new Intent(NewsActivity.this,MainActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(menuItem);
     }
 }

@@ -1,8 +1,11 @@
 package com.example.collins.agrino;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -91,7 +94,13 @@ public class Resources extends Fragment {
             recyclerView.setAdapter(new ResourcesAdapter(getContext(),Resource.getResources()));
         }
         else{
-            getAccessToken();
+            if(isConnected()){
+                getAccessToken();
+            }
+            else{
+                Toast.makeText(getContext(),"No Internet Connection",Toast.LENGTH_LONG).show();
+            }
+
         }
         return view;
     }
@@ -124,7 +133,17 @@ public class Resources extends Fragment {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
-                Toast.makeText(getContext(),"Check Internet Connection",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(),"Check Internet Connection",Toast.LENGTH_SHORT).show();
+//                Looper.prepare();
+
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getContext(),"No Internet Connection",Toast.LENGTH_LONG).show();
+                    }
+                });
+
+                Log.d("NET ","No Internet");
             }
             @Override
             public void onResponse(Call call, Response response) throws IOException {
@@ -155,6 +174,19 @@ public class Resources extends Fragment {
                 }
             }
         });
+    }
+
+    public  boolean isConnected(){
+        try{
+            ConnectivityManager connectivityManager=(ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+            assert connectivityManager != null;
+            NetworkInfo networkInfo=connectivityManager.getActiveNetworkInfo();
+            return networkInfo.isConnected();
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     /**
