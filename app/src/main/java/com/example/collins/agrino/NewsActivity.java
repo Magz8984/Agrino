@@ -78,11 +78,9 @@ public class NewsActivity extends AppCompatActivity implements  Services.OnFragm
         this.recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(new RecyclerViewAdapter(mnames,imageUrls,this));
     }
-
     private  void  setTablayout(){
         tabLayout.addTab(tabLayout.newTab().setText("Services"));
         tabLayout.addTab(tabLayout.newTab().setText("Resources"));
-        tabLayout.addTab(tabLayout.newTab().setText("Profile"));
         PagerAdapter pagerAdapter=new PagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
         viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -119,6 +117,11 @@ public class NewsActivity extends AppCompatActivity implements  Services.OnFragm
                 FirebaseAuth.getInstance().signOut();
                 Intent intent=new Intent(NewsActivity.this,MainActivity.class);
                 startActivity(intent);
+                break;
+
+            case  R.id.optProfile:
+                Intent profile=new Intent(NewsActivity.this,ProfileData.class);
+                startActivity(profile);
                 break;
             default:
                 break;

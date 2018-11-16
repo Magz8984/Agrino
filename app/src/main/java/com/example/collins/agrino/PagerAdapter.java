@@ -19,10 +19,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
             case 1:
                 Resources resources=new Resources();
                 return  resources;
-
-            case 2:
-                Profile chats=new Profile();
-                return  chats;
             default:
                 return null;
         }
