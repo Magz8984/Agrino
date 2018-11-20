@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.signUp)Button btnSignUp;
     @BindView(R.id.txtEmail) TextView txtEmail;
     @BindView(R.id.txtPassword) TextView txtPassword;
+    @BindView(R.id.lblForgotPassword) TextView lblForgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +68,32 @@ public class MainActivity extends AppCompatActivity {
                 SignUpDialog signUpDialog=new SignUpDialog();
                 signUpDialog.setFirebaseAuth(firebaseAuth);
                 signUpDialog.show(MainActivity.this.getSupportFragmentManager(),"Sign Up Fragment");
+            }
+        });
+
+
+        lblForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isEmailNotValid=txtEmail.getText().toString().equals("");
+                if (!isEmailNotValid) {
+                    if(isConnected()){
+                        firebaseAuth.sendPasswordResetEmail(txtEmail.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+                                    Toast.makeText(MainActivity.this,"Email Sent",Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+                    }
+                    else{
+                        Toast.makeText(MainActivity.this,"No Internet Connection",Toast.LENGTH_LONG).show();
+                    }
+                }
+                else{
+                    Toast.makeText(MainActivity.this,"Email Field Empty",Toast.LENGTH_LONG).show();
+                }
             }
         });
 

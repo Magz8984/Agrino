@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/black">
+
+    <TextView
+        android:id="@+id/lbletter"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:text="S"
+        android:textSize="60sp"
+        android:textAlignment="center"
+        android:textColor="@color/button"
+        app:fontFamily="@font/narmitbold"/>
+
+    <TextView
+        android:id="@+id/lblhint"
+        android:layout_below="@+id/lbletter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Service"
+        android:textSize="20sp"
+        app:fontFamily="@font/narmitbold"/>
+</RelativeLayout>

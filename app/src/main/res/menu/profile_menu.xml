@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:title="Data"
-        android:id="@+id/viewPost"
+        android:title="Updates"
+        android:id="@+id/updates"
         android:tooltipText="Group"
         android:icon="@drawable/group"
         />
 
     <item
         android:title="Post"
-        android:id="@+id/addPost"
+        android:id="@+id/post"
         android:tooltipText="Post"
         android:icon="@drawable/create"
         />

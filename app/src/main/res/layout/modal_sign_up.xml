@@ -5,11 +5,11 @@
     android:background="#262626"
     android:layout_height="wrap_content">
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/imgGoogle"
-        android:layout_width="100sp"
-        android:layout_height="100sp"
-        android:src="@drawable/google"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+        android:src="@drawable/leaf"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5sp"
         />

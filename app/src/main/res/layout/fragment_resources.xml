@@ -5,16 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ResourcesActivity">
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:fontFamily="@font/narmitbold"
-        android:text="@string/Resources"
-        android:textAlignment="center"
-        android:textSize="25sp"/>
+    tools:context=".Resources">
 
 
     <android.support.v7.widget.RecyclerView

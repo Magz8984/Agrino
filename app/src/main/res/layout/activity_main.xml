@@ -87,5 +87,16 @@
         </LinearLayout>
 
 
+    <TextView
+        android:id="@+id/lblForgotPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15sp"
+        app:fontFamily="@font/narmitbold"
+        android:textAlignment="center"/>
+
+
 
 </LinearLayout>
