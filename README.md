@@ -31,6 +31,9 @@ problem solving world.
 ![News Activity1](news1.png)
 ![News Activity2](news2.png)
 
+4. **Profile Data**
+* Here you will find fragments to assists viewing of updates , post images and update content.
+
 
 ## New Features **Version 2**
 
@@ -87,6 +90,9 @@ A Network Loading library that helps me create async requests making my applicat
 perfom the same regardless of multiple authentication steps by the OAuth 2 authorization method aWhere API uses.
 7. aWhere API
 An api to retrive crop information in a particular field set
+8. Firebase
+Google cloud service to enable my application to authenticate users and view real time updates
+created by other farmers.
 
 
 ## LICENSE
