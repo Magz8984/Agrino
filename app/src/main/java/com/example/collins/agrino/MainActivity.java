@@ -148,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     public void setDialog(){
         progressDialog=new ProgressDialog(this);
         progressDialog.setTitle("Authentication In Progress");

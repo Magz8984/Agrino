@@ -42,10 +42,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 .asBitmap()
                 .load(imageurls.get(i))
                 .into(viewHolder.circleImageView);
-
-
         viewHolder.name.setText(mnames.get(i));
-
         viewHolder.circleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

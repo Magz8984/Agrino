@@ -39,7 +39,7 @@ public class NewsActivity extends AppCompatActivity implements  Services.OnFragm
         initImageBitMaps();
         initRecView();
         setTablayout();
-        setSupportActionBar(toolbar);;
+        setSupportActionBar(toolbar);
     }
 
     private void initImageBitMaps(){

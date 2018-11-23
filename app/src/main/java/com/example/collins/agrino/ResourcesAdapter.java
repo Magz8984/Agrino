@@ -19,7 +19,7 @@ import Models.Resource;
 public class ResourcesAdapter extends RecyclerView.Adapter<ViewHolder>{
     private Context context;
     private ArrayList<Resource> resources;
-    public ResourcesAdapter(Context context, ArrayList<Resource> resources) {
+    public ResourcesAdapter   (Context context, ArrayList<Resource> resources) {
          this.context=context;
          this.resources=resources;
     }
@@ -51,7 +51,7 @@ public class ResourcesAdapter extends RecyclerView.Adapter<ViewHolder>{
             });
         }
     }
-    @Override
+    @Overridengnggbvddfsddwggrgbgfgbgeds
     public int getItemCount() {
         return resources.size();
     }
@@ -61,6 +61,7 @@ class ViewHolder extends RecyclerView.ViewHolder{
     TextView txtDescription;
     TextView txtSource;
     Button btnLink;
+    Button btnDelete;
     ViewHolder(View view){
         super(view);
         txtCrop=(TextView) view.findViewById(R.id.txtCrop);

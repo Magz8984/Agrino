@@ -143,8 +143,9 @@ final  private  int REQUEST_CODE=1;
                                  getName().addValueEventListener(new ValueEventListener() {
                                      @Override
                                      public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                         databaseReference.child(Long.toString(new Date().getTime())).setValue(new Crop(editText.getText().toString(),uri.toString(),dataSnapshot.child("name").getValue().toString(),
-                                                 new Date().getTime())).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                         long time=new Date().getTime();
+                                         databaseReference.child(Long.toString(time)).setValue(new Crop(editText.getText().toString(),uri.toString(),dataSnapshot.child("name").getValue().toString(),
+                                                 time)).addOnCompleteListener(new OnCompleteListener<Void>() {
                                              @Override
                                              public void onComplete(@NonNull Task<Void> task) {
                                                  if(task.isSuccessful()){
