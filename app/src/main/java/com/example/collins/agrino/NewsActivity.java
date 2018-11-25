@@ -17,6 +17,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -24,11 +26,13 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class NewsActivity extends AppCompatActivity implements  Services.OnFragmentInteractionListener,Resources.OnFragmentInteractionListener{
+public class NewsActivity extends AppCompatActivity implements  Services.OnFragmentInteractionListener,Resources.OnFragmentInteractionListener,View.OnClickListener{
 @BindView(R.id.recView) RecyclerView recyclerView;
 @BindView(R.id.tabs) TabLayout tabLayout;
 @BindView(R.id.viewPager) ViewPager viewPager;
 @BindView(R.id.toolbar) Toolbar toolbar;
+@BindView(R.id.btnPost) Button btnPost;
+@BindView(R.id.btnUpdates)Button btnUpdates;
     ArrayList<String> mnames=new ArrayList<String>();
     ArrayList<String> imageUrls=new ArrayList<String>();
     @Override
@@ -127,5 +131,13 @@ public class NewsActivity extends AppCompatActivity implements  Services.OnFragm
                 break;
         }
         return super.onOptionsItemSelected(menuItem);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.equals(btnUpdates)){
+            Intent profile=new Intent(NewsActivity.this,ProfileData.class);
+            startActivity(profile);
+        }
     }
 }
