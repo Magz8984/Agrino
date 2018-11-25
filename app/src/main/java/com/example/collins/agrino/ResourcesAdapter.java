@@ -51,7 +51,7 @@ public class ResourcesAdapter extends RecyclerView.Adapter<ViewHolder>{
             });
         }
     }
-    @Overridengnggbvddfsddwggrgbgfgbgeds
+    @Override
     public int getItemCount() {
         return resources.size();
     }
