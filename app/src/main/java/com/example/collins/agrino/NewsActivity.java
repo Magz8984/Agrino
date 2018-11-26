@@ -31,8 +31,6 @@ public class NewsActivity extends AppCompatActivity implements  Services.OnFragm
 @BindView(R.id.tabs) TabLayout tabLayout;
 @BindView(R.id.viewPager) ViewPager viewPager;
 @BindView(R.id.toolbar) Toolbar toolbar;
-@BindView(R.id.btnPost) Button btnPost;
-@BindView(R.id.btnUpdates)Button btnUpdates;
     ArrayList<String> mnames=new ArrayList<String>();
     ArrayList<String> imageUrls=new ArrayList<String>();
     @Override
@@ -45,7 +43,6 @@ public class NewsActivity extends AppCompatActivity implements  Services.OnFragm
         setTablayout();
         setSupportActionBar(toolbar);
     }
-
     private void initImageBitMaps(){
         imageUrls.add("https://www.mfarm.co.ke/media/W1siZiIsIjIwMTYvMDMvMTAvNHR3YjA5YzZxNV9jaGlsaWVzXzIuanBnIl0sWyJwIiwidGh1bWIiLCI4MjB4MzQwIyJdXQ/97f073f86e6cd0cf/chilies%202.jpg");
         mnames.add("Chillies");
@@ -135,9 +132,6 @@ public class NewsActivity extends AppCompatActivity implements  Services.OnFragm
 
     @Override
     public void onClick(View v) {
-        if(v.equals(btnUpdates)){
-            Intent profile=new Intent(NewsActivity.this,ProfileData.class);
-            startActivity(profile);
-        }
+
     }
 }
