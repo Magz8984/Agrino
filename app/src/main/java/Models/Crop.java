@@ -10,11 +10,13 @@ public class Crop {
     private  String caption;
     private  String uri;
     private  long mills;
-    public  Crop(String caption,String uri,String name,long mills){
+    private String date;
+    public  Crop(String caption,String uri,String name,String date,long mills){
         this.uri=uri;
         this.caption=caption;
         this.name=name;
         this.mills=mills;
+        this.date=date;
     }
     public String getCaption() {
         return caption;
@@ -29,5 +31,9 @@ public class Crop {
 
     public long getMills() {
         return mills;
+    }
+
+    public String getDate() {
+        return date;
     }
 }
