@@ -122,7 +122,8 @@ final  private  int REQUEST_CODE=1;
             ByteArrayOutputStream baos=new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG,100,baos);
             byte[] bytes=baos.toByteArray();
-            storageReference=firebaseStorage.getReference(new Date().toLocaleString());
+            final String date=new Date().toLocaleString();
+            storageReference=firebaseStorage.getReference(date);
             UploadTask uploadTask=storageReference.putBytes(bytes);
             uploadTask.addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -145,7 +146,7 @@ final  private  int REQUEST_CODE=1;
                                      public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                          long time=new Date().getTime();
                                          databaseReference.child(Long.toString(time)).setValue(new Crop(editText.getText().toString(),uri.toString(),dataSnapshot.child("name").getValue().toString(),
-                                                 time)).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                 date,time)).addOnCompleteListener(new OnCompleteListener<Void>() {
                                              @Override
                                              public void onComplete(@NonNull Task<Void> task) {
                                                  if(task.isSuccessful()){
