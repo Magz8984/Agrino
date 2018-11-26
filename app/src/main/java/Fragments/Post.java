@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.example.collins.agrino.ChatsActivity;
 import com.example.collins.agrino.CropActivity;
 import com.example.collins.agrino.R;
 import Adapters.PostAdapter;
@@ -35,6 +36,8 @@ public class Post extends Fragment {
                         startActivity(intent);
                         break;
                     case 2:
+                        Intent chats=new Intent(getActivity(), ChatsActivity.class);
+                        startActivity(chats);
                         break;
                 }
             }

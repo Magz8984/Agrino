@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import Adapters.UpdatesUpdater;
+import Animations.SimpleAnimation;
 import Models.Crop;
 
 public class Updates extends Fragment {
@@ -47,10 +49,16 @@ public class Updates extends Fragment {
                             Crop plant=new Crop(crop.child("caption").getValue().toString()
                                     ,crop.child("uri").getValue().toString(),
                                     crop.child("name").getValue().toString(),
+                                    crop.child("date").getValue().toString(),
                                     Long.parseLong(crop.child("mills").getValue().toString()));
                             Crop.crops.add(plant);
                         }
-                        updates.setAdapter(new UpdatesUpdater(getContext(),Crop.crops));
+
+                        UpdatesUpdater updatesUpdater=new UpdatesUpdater(getContext(),Crop.crops,getFragmentManager());
+                        updates.setAdapter(updatesUpdater);
+                        SimpleAnimation simpleAnimation=new SimpleAnimation(updatesUpdater);
+                        ItemTouchHelper itemTouchHelper=new ItemTouchHelper(simpleAnimation);
+                        itemTouchHelper.attachToRecyclerView(updates);
                     }
                 }
 
