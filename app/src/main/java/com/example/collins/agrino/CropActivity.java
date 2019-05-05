@@ -155,7 +155,6 @@ final  private  int REQUEST_CODE=1;
                                              }
                                          });
                                      }
-
                                      @Override
                                      public void onCancelled(@NonNull DatabaseError databaseError) {
 

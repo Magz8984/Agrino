@@ -72,7 +72,6 @@ public class UpdatesUpdater extends RecyclerView.Adapter<ViewHolder>  implements
                                     if (task.isSuccessful()) {
                                         Log.d("SUCCESS", "TRUE");
                                         notifyItemRemoved(i);
-
                                     }
                                 }
                             });
@@ -90,16 +89,16 @@ public class UpdatesUpdater extends RecyclerView.Adapter<ViewHolder>  implements
             viewHolder.btnDelete.setVisibility(View.GONE);
         }
     }
+    public StorageReference deleteItem(String date) {
+        storageReference = FirebaseStorage.getInstance().getReference().child(date);
+        return storageReference;
+    }
 
     @Override
     public int getItemCount() {
         return crops.size();
     }
 
-    public StorageReference deleteItem(String date) {
-        storageReference = FirebaseStorage.getInstance().getReference().child(date);
-        return storageReference;
-    }
 
     @Override
     public void onItemDismiss(int position) {

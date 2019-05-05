@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context="Fragments.Post">
 
-
     <GridView
         android:layout_marginTop="?attr/actionBarSize"
         android:layout_width="match_parent"

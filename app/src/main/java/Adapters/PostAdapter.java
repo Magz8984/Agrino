@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
 import com.example.collins.agrino.R;
 
 public class PostAdapter extends BaseAdapter {
@@ -24,7 +23,6 @@ public class PostAdapter extends BaseAdapter {
     public  PostAdapter(Context context){
         this.context=context;
     }
-
 
     @Override
     public int getCount() {
@@ -45,11 +43,10 @@ public class PostAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater=(LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View gridView;
-         if(convertView==null){
+         if(convertView == null){
              gridView=inflater.inflate(R.layout.post_item,null);
              TextView lblLetter=(TextView)  gridView.findViewById(R.id.lbletter);
              TextView lblHint=(TextView)  gridView.findViewById(R.id.lblhint);
-
              lblLetter.setText(letters[position]);
              lblHint.setText(services[position]);
          }
