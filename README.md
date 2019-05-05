@@ -26,10 +26,35 @@ problem solving world.
 * Here you will find a couple of things
 
 * Recycler View with crop images and names retrieved from the Internet
-* List View with major companies and organizations that offer farm services.\
+* List View with major companies and organizations that offer farm services.
 
 ![News Activity1](news1.png)
 ![News Activity2](news2.png)
+
+4. **Profile Data**
+* Here you will find fragments to assists viewing of updates , post images and update content.
+
+
+## New Features **Version 2**
+
+### Images
+
+![Version 2](version2news.png)
+
+1. **Resource Fragment**
+
+* This fragment proves crucial for technical farmers who want to keep up reading new content from
+interested areas they would like to read on.
+
+2. **Services Fragment**
+* This fragment  provides services from agriculture service vendor and also a platform for
+other agriculture related  companies to advertise them selves.
+
+
+## Challenges
+
+1. Access Rate Limiting by aWhere API to 20 requests per hour which
+will make Agrino move towards acquiring more data and creating my APIs to solve this
 
 ## Installation
 
@@ -60,6 +85,14 @@ Narmit Bold and Normal for the app fonts
 To create my Recycler View Item Circular Image
 5. Glide
 To ensure smooth image loading since images are retrieved from the Internet
+6. Okhttp3
+A Network Loading library that helps me create async requests making my application
+perfom the same regardless of multiple authentication steps by the OAuth 2 authorization method aWhere API uses.
+7. aWhere API
+An api to retrive crop information in a particular field set
+8. Firebase
+Google cloud service to enable my application to authenticate users and view real time updates
+created by other farmers.
 
 
 ## LICENSE

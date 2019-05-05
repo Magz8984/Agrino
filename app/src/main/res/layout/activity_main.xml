@@ -27,6 +27,7 @@
              app:fontFamily="@font/narmitbold"
              android:textSize="25sp"
              />
+
           <EditText
               android:id="@+id/txtEmail"
               android:layout_width="match_parent"
@@ -50,8 +51,6 @@
              android:drawableLeft="@drawable/password"
              android:drawableStart="@drawable/password"/>
 
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,6 +58,7 @@
             android:weightSum="2"
             style="android:attr/buttonBarStyle"
             >
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -71,7 +71,6 @@
                 style="android:attr/buttonBarButtonStyle"
                 android:id="@+id/login"
                 />
-
 
             <Button
                 android:layout_width="wrap_content"
@@ -86,6 +85,14 @@
                 style="android:attr/buttonBarButtonStyle"/>
         </LinearLayout>
 
-
+    <TextView
+        android:id="@+id/lblForgotPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15sp"
+        app:fontFamily="@font/narmitbold"
+        android:textAlignment="center"/>
 
 </LinearLayout>

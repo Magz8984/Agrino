@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5sp"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5sp"
+        app:contentPadding="3sp"
+        app:elevation="30sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtCrop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/crop"
+                android:textColor="@color/button"
+                android:textSize="23sp"
+                app:fontFamily="@font/narmitbold" />
+
+            <TextView
+                android:id="@+id/txtDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5sp"
+                android:text="Description"
+                android:textSize="20sp"
+                app:fontFamily="@font/narmit" />
+
+            <TextView
+                android:id="@+id/txtSource"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5sp"
+                android:text="Source"
+                android:textSize="20sp"
+                app:fontFamily="@font/narmit" />
+
+            <Button
+                android:id="@+id/btnLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:background="@color/button"
+                android:text="Read More"
+                android:textColor="#fff"
+                android:textSize="15sp"
+                app:fontFamily="@font/narmitbold" />
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

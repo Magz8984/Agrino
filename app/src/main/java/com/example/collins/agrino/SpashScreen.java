@@ -1,13 +1,10 @@
 package com.example.collins.agrino;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ProgressBar;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -20,7 +17,6 @@ public class SpashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spash_screen);
         ButterKnife.bind(this);
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -29,4 +25,6 @@ public class SpashScreen extends AppCompatActivity {
             }
         },3000);
     }
+
+
 }

@@ -7,14 +7,25 @@
     tools:context=".NewsActivity"
     android:background="#262626">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#262626"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:layout_width="match_parent">
+
+    </android.support.v7.widget.Toolbar>
+
     <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/recView"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:id="@+id/recView"
+        android:background="#262626"
         android:orientation="horizontal"
-        android:background="#000"
-        android:padding="1dp"
-        >
+        android:padding="1dp">
 
     </android.support.v7.widget.RecyclerView>
 
@@ -26,27 +37,23 @@
         android:paddingStart="2dp"
         android:paddingRight="2dp"
         android:paddingEnd="2dp"
-        android:background="#000">
+        android:background="#262626">
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:fontFamily="@font/narmitbold"
-            android:textSize="30sp"
-            android:text="@string/services"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/header"/>
-
-
-        <ListView
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/button"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:tabIndicatorColor="#fff"
+        />
+        <android.support.v4.view.ViewPager
+            android:layout_below="@+id/tabs"
+            android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/header"
-            android:id="@+id/lstItems"
-            android:scrollbars="none"/>
-
+            android:layout_height="match_parent">
+        </android.support.v4.view.ViewPager>
     </RelativeLayout>
-
-
 </RelativeLayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:background="#262626"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imgGoogle"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+        android:src="@drawable/leaf"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5sp"
+        />
+
+    <EditText
+        android:id="@+id/txtEmail2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgGoogle"
+        android:textColorLink="@color/button"
+        android:textColor="#fff"
+        android:hint="@string/email"
+        android:maxLines="1"
+        android:inputType="text"
+        />
+
+
+    <EditText
+        android:id="@+id/txtPassword2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtEmail2"
+        android:textColorLink="@color/button"
+        android:textColor="#fff"
+        android:hint="@string/password"
+        android:maxLines="1"
+        android:inputType="textPassword"
+        />
+
+
+    <LinearLayout
+        android:layout_below="@+id/txtPassword2"
+        android:layout_width="match_parent"
+        android:padding="10sp"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:background="@color/button"
+            android:layout_weight="1"
+            android:text="@string/cancel"
+            android:layout_margin="5sp"/>
+
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:background="@color/button"
+            android:layout_margin="5sp"
+            android:text="@string/signup"
+            />
+
+    </LinearLayout>
+</RelativeLayout>

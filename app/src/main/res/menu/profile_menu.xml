@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="Updates"
+        android:id="@+id/updates"
+        android:tooltipText="Group"
+        android:icon="@drawable/group"
+        />
+
+    <item
+        android:title="Post"
+        android:id="@+id/post"
+        android:tooltipText="Post"
+        android:icon="@drawable/create"
+        />
+
+    <item
+        android:icon="@drawable/profile"
+        android:id="@+id/profile"
+        android:title="@string/profile"
+        />
+
+</menu>

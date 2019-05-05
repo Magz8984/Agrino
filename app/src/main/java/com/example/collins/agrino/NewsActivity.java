@@ -1,28 +1,38 @@
 package com.example.collins.agrino;
 
+
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.ListView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class NewsActivity extends AppCompatActivity {
+public class NewsActivity extends AppCompatActivity implements  Services.OnFragmentInteractionListener,Resources.OnFragmentInteractionListener,View.OnClickListener{
 @BindView(R.id.recView) RecyclerView recyclerView;
-@BindView(R.id.lstItems) ListView  lstItems;
-
-
+@BindView(R.id.tabs) TabLayout tabLayout;
+@BindView(R.id.viewPager) ViewPager viewPager;
+@BindView(R.id.toolbar) Toolbar toolbar;
     ArrayList<String> mnames=new ArrayList<String>();
     ArrayList<String> imageUrls=new ArrayList<String>();
-    ArrayList<String> headers=new ArrayList<String>();
-    ArrayList<String> bodys=new ArrayList<String>();
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +40,9 @@ public class NewsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initImageBitMaps();
         initRecView();
-        initServices();
-        initListView();
+        setTablayout();
+        setSupportActionBar(toolbar);
     }
-
     private void initImageBitMaps(){
         imageUrls.add("https://www.mfarm.co.ke/media/W1siZiIsIjIwMTYvMDMvMTAvNHR3YjA5YzZxNV9jaGlsaWVzXzIuanBnIl0sWyJwIiwidGh1bWIiLCI4MjB4MzQwIyJdXQ/97f073f86e6cd0cf/chilies%202.jpg");
         mnames.add("Chillies");
@@ -61,23 +70,6 @@ public class NewsActivity extends AppCompatActivity {
         mnames.add("Kales");
     }
 
-    private void initServices(){
-        headers.add("Veterinary Officer");
-        bodys.add("An experienced veterinary officer ready to present you top knock services");
-
-        headers.add("National Farmers Information Service");
-        bodys.add("NAFIS is a comprehensive information service, intended to serve farmers’ needs throughout the country including the rural areas where internet access is limited. " +
-                "It enables farmers get critical extension information by either browsing through the internet or calling NAFIS 020-5100102 numbers");
-
-
-        headers.add("Farm Drive");
-        bodys.add("FarmDrive uses mobile phones, alternative data, and machine learning to close the critical data gap that prevents financial" +
-                " institutions from lending to creditworthy smallholder farmers.");
-
-        headers.add("Sokopepe");
-        bodys.add("Sokopepe is a social enterprise supporting the agricultural sector in Kenya by offering market information and farm records management services");
-
-    }
 
     // Set Adapters
 
@@ -87,9 +79,59 @@ public class NewsActivity extends AppCompatActivity {
         this.recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(new RecyclerViewAdapter(mnames,imageUrls,this));
     }
+    private  void  setTablayout(){
+        tabLayout.addTab(tabLayout.newTab().setText("Services"));
+        tabLayout.addTab(tabLayout.newTab().setText("Resources"));
+        PagerAdapter pagerAdapter=new PagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
+        viewPager.setAdapter(pagerAdapter);
+        viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
 
-    private void initListView(){
-        Log.d("initListView","init list");
-        lstItems.setAdapter(new ServicesAdapter(this,headers,bodys));
+            }
+        });
+    }
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public  boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater menuInflater=getMenuInflater();
+        menuInflater.inflate(R.menu.agrino_menu,menu);
+        return  super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public  boolean onOptionsItemSelected(MenuItem menuItem){
+        switch (menuItem.getItemId()){
+            case R.id.optLogout:
+                FirebaseAuth.getInstance().signOut();
+                Intent intent=new Intent(NewsActivity.this,MainActivity.class);
+                startActivity(intent);
+                break;
+
+            case  R.id.optProfile:
+                Intent profile=new Intent(NewsActivity.this,ProfileData.class);
+                startActivity(profile);
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(menuItem);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }
