@@ -1,25 +1,23 @@
 package com.example.collins.agrino;
 
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.Uri;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -27,8 +25,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class NewsActivity extends AppCompatActivity implements  Services.OnFragmentInteractionListener,Resources.OnFragmentInteractionListener,View.OnClickListener{
-@BindView(R.id.recView) RecyclerView recyclerView;
-@BindView(R.id.tabs) TabLayout tabLayout;
+@BindView(R.id.recView)
+RecyclerView recyclerView;
+@BindView(R.id.tabs)
+TabLayout tabLayout;
 @BindView(R.id.viewPager) ViewPager viewPager;
 @BindView(R.id.toolbar) Toolbar toolbar;
     ArrayList<String> mnames=new ArrayList<String>();
@@ -85,7 +85,7 @@ public class NewsActivity extends AppCompatActivity implements  Services.OnFragm
         PagerAdapter pagerAdapter=new PagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
         viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tabLayout.setOnTabSelectedListener(new TabLayout.BaseOnTabSelectedListener<TabLayout.Tab>() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());

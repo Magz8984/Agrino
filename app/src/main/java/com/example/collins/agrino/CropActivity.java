@@ -3,29 +3,26 @@ package com.example.collins.agrino;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -43,20 +40,20 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.util.Date;
 
 import Models.Crop;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class CropActivity extends AppCompatActivity  implements View.OnClickListener{
+public class CropActivity extends AppCompatActivity implements View.OnClickListener{
 private ProgressDialog upload;
 boolean selected=false;
 private FirebaseStorage firebaseStorage;
 private DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("crops");
 final  private  int REQUEST_CODE=1;
-@BindView(R.id.cropToolbar) Toolbar toolbar;
+@BindView(R.id.cropToolbar)
+Toolbar toolbar;
 @BindView(R.id.imgUpload) ImageView imgUpload;
 @BindView(R.id.btnPostCrop) Button btnPostCrop;
 @BindView(R.id.txtTalk) EditText editText;
@@ -89,17 +86,18 @@ final  private  int REQUEST_CODE=1;
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
 
-    public  void onActivityResult(int requestCode, int resultCode, Intent data){
-        requestPermison();
-            if(requestCode==REQUEST_CODE && data!=null){
-                Uri selectedImage=data.getData();
-                Glide.with(this).asBitmap().load(selectedImage).into(imgUpload);
-                selected=true;
-            }
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        requestPermission();
+        if (requestCode == REQUEST_CODE && data != null) {
+            Uri selectedImage = data.getData();
+            Glide.with(this).asBitmap().load(selectedImage).into(imgUpload);
+            selected = true;
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
-    public  void  requestPermison(){
+    public  void requestPermission(){
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.M){
             if(checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
                 Log.e("TRUE","TRUE");

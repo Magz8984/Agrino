@@ -1,12 +1,12 @@
 package com.example.collins.agrino;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     int numberOfPowers;
-    public PagerAdapter(FragmentManager fm,int numberOfPages) {
+    public PagerAdapter(FragmentManager fm, int numberOfPages) {
         super(fm);
         this.numberOfPowers=numberOfPages;
     }

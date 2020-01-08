@@ -2,13 +2,15 @@ package com.example.collins.agrino;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ProgressBar;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SpashScreen extends AppCompatActivity {
+public class SplashScreen extends AppCompatActivity {
 
     @BindView(R.id.pgStart) ProgressBar pgStart;
 
@@ -20,7 +22,7 @@ public class SpashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i=new Intent(SpashScreen.this,MainActivity.class);
+                Intent i=new Intent(SplashScreen.this,MainActivity.class);
                 startActivity(i);
             }
         },3000);
