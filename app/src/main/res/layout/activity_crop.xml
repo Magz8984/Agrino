@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".CropActivity">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/cropToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -14,7 +14,7 @@
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <ImageView
         android:layout_below="@+id/cropToolbar"

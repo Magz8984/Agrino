@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="Fragments.Updates">
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="?attr/actionBarSize"
         android:id="@+id/recUpdates"
         android:layout_width="match_parent"
@@ -13,5 +13,5 @@
         android:scrollbars="vertical">
 
 
-    </android.support.v7.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
 </RelativeLayout>
